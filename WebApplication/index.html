@@ -17,6 +17,12 @@
 			</div><!--/header-->
 			<div id="color-bar"></div>
 			
+            <form enctype="multipart/form-data" action="http://www.stanford.edu/~kjmiller/cgi-bin/EE368_Android_Tutorial3_Server/computeSIFT.php" method="POST">
+                <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
+                Choose a file to upload: <input name="uploadedfile" type="file" /><br />
+                <input type="submit" value="Upload File" />
+            </form>
+            
 			<div data-role="content">
                 <ul data-role="listview" data-inset="true" data-theme="b">
                		<li data-role="list-divider">TRANSLATE...</li>
