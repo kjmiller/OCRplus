@@ -1,0 +1,37 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+		<title>Touch Mobile &amp; Tablet Template</title> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0;"  />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
+	</head>
+	<body> 
+		<div data-role="page" class="page" data-dom-cache="true">
+		    <div data-role="header" id="index-header" data-theme="b">
+				<div id="logo"><img src="img/logo.png" alt="logo"></div>
+			</div><!--/header-->
+			<div id="color-bar"></div>
+			
+			<div data-role="content">
+                <ul data-role="listview" data-inset="true" data-theme="b">
+               		<li data-role="list-divider">TRANSLATE...</li>
+	      			<li><a href="phone.html" data-prefetch>Image from Phone</a></li>
+					<li><a href="dropbox.html" data-prefetch>Image from Dropbox</a></li>
+                    <li><a href="website.html" data-prefetch>Website</a></li>
+				</ul>
+                
+                <div class="spacing"></div>
+                
+                <ul data-role="listview" data-inset="true" data-theme="b">
+                    <li><a href="settings.html" data-prefetch>Settings</a></li>
+					<li><a href="about.html" data-prefetch>What is OCR+?</a></li>
+	    		</ul>
+			</div><!-- /content -->
+		</div><!-- /page -->
+</body>
+</html>
