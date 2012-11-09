@@ -5,11 +5,13 @@
 #include <sstream>
 #include <utility>
 
-int main() {
-	std::string del="#";
-	std::ofstream fout("out.txt");
+#define DELIMITER "#OppanOCRplusDelimiter#"
+
+int main(int argc, char * argv[]) {
+	std::string del=DELIMITER;
+	std::ofstream fout(argv[2]);
 	pugi::xml_document doc;
-	pugi::xml_parse_result result = doc.load_file("in.html");
+	pugi::xml_parse_result result = doc.load_file(argv[1]);
 	pugi::xml_node html = doc.child("html");
 	pugi::xml_node body = html.child("body");
 	pugi::xml_node ps = body.child("div").child("div");

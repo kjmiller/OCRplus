@@ -10,8 +10,9 @@ delimiter = "#OppanOCRplusDelimiter#"
 base_url = "https://www.googleapis.com/language/translate/v2?"
 
 key_file_name = sys.argv[1]
-target = sys.argv[2]
-input_file_name = sys.argv[3]
+source = sys.argv[2]
+target = sys.argv[3]
+input_file_name = sys.argv[4]
 
 key_file = open(key_file_name, "r")
 key = key_file.readline().rstrip("\n")
@@ -41,7 +42,7 @@ for i in range(len(parser_outputs) / 2):
 
 #print(sentences)
 
-source_tuple_list = []
+source_tuple_list = [("source", source)]
 #if source != "":
 #	source_tuple_list = [("source", source)]
 
