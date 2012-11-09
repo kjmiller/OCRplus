@@ -6,7 +6,7 @@ import sys
 
 delimiter = "#OppanOCRplusDelimiter#"
 remove_inner_newlines = 1
-font_file_name = "/afs/ir.stanford.edu/users/k/j/kjmiller/cgi-bin/OCRplus/Rendering/Lobster 1.4.otf"
+font_file_name = "/home/ubuntu/OCRplus/Rendering/Lobster1.4.otf"
 num_blurs = 25
 
 def draw_text_on_image(I, draw, x_offset, y_offset, font_size, red, green, blue, text):

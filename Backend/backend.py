@@ -2,7 +2,7 @@ import os
 import sys
 
 delimiter = "#OppanOCRplusDelimiter#"
-base_dir = "/afs/ir.stanford.edu/users/k/j/kjmiller/cgi-bin/OCRplus"
+base_dir = "/home/ubuntu/OCRplus"
 remove_inner_newlines = 1
 font_coeff = 1.0
 
