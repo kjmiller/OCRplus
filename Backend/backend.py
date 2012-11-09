@@ -7,18 +7,19 @@ remove_inner_newlines = 1
 font_coeff = 1.0
 
 def usage():
-	print("Usage: python backend.py <input_image_file_name> <source_language> <target_language> <tesseract_output_file_name> <parser_output_file_name> <rendering_input_file_name> <output_image_file_name>")
+	print("Usage: python backend.py <input_image_file_name> <tesseract_source_language> <google_source_language> <target_language> <tesseract_output_file_name> <parser_output_file_name> <rendering_input_file_name> <output_image_file_name>")
 
 if __name__ == "__main__":
 	input_image_file_name = sys.argv[1]
-	source_language = sys.argv[2]
-	target_language = sys.argv[3]
-	tesseract_output_file_name = sys.argv[4]
-	parser_output_file_name = sys.argv[5]
-	rendering_input_file_name = sys.argv[6]
-	output_image_file_name = sys.argv[7]
+	tesseract_source_language = sys.argv[2]
+	google_source_language = sys.argv[3]
+	target_language = sys.argv[4]
+	tesseract_output_file_name = sys.argv[5]
+	parser_output_file_name = sys.argv[6]
+	rendering_input_file_name = sys.argv[7]
+	output_image_file_name = sys.argv[8]
 
-	os.system("%s/OCRKevinTake3/run_tesseract.sh %s %s %s"%(base_dir, input_image_file_name, tesseract_output_file_name, source_language))
+	os.system("%s/OCRKevinTake3/run_tesseract.sh %s %s %s"%(base_dir, input_image_file_name, tesseract_output_file_name, tesseract_source_language))
 	os.system("python %s/OCRKevinTake3/skeleton_parser.py %s %s"%(base_dir, tesseract_output_file_name + ".html", parser_output_file_name))
 	
 	parser_output_file = open(parser_output_file_name, "r")
@@ -53,7 +54,7 @@ if __name__ == "__main__":
 		bbox_lower_right_xs.append(int(bbox_coords[2]))
 		bbox_lower_right_ys.append(int(bbox_coords[3]))
 
-	translation_output = os.popen("python %s/Translation/translate_the_fucking_sentences.py %s/Translation/key.txt %s %s %s"%(base_dir, base_dir, source_language, target_language, parser_output_file_name))
+	translation_output = os.popen("python %s/Translation/translate_the_fucking_sentences.py %s/Translation/key.txt %s %s %s"%(base_dir, base_dir, google_source_language, target_language, parser_output_file_name))
 
 	translation_output_str = ""
 	for line in translation_output:
