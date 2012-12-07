@@ -1,4 +1,5 @@
 import os
+import os.path
 import sys
 
 intermediate_dir = "/home/ubuntu/OCRplus/intermediate"
@@ -26,11 +27,18 @@ if __name__ == "__main__":
 	target_language = sys.argv[3].lower()
 	output_image_file_name = sys.argv[4]
 
-	tesseract_file_name = "%s/tesseracted"%(intermediate_dir)
-	parse_file_name = "%s/parsed.txt"%(intermediate_dir)
-	render_file_name = "%s/to_render.txt"%(intermediate_dir)
+	try:
+		tesseract_file_name = "%s/tesseracted"%(intermediate_dir)
+		parse_file_name = "%s/parsed.txt"%(intermediate_dir)
+		render_file_name = "%s/to_render.txt"%(intermediate_dir)
+	
+		os.system("rm %s %s %s"%(tesseract_file_name, parse_file_name, render_file_name))
+	
+		print("python /home/ubuntu/OCRplus/Backend/backend.py %s %s %s %s %s %s %s %s"%(input_image_file_name, tesseract_dict[source_language], google_dict[source_language], google_dict[target_language], tesseract_file_name, parse_file_name, render_file_name, output_image_file_name))
+		os.system("python /home/ubuntu/OCRplus/Backend/backend.py %s %s %s %s %s %s %s %s"%(input_image_file_name, tesseract_dict[source_language], google_dict[source_language], google_dict[target_language], tesseract_file_name, parse_file_name, render_file_name, output_image_file_name))
 
-	os.system("rm %s %s %s"%(tesseract_file_name, parse_file_name, render_file_name))
-
-	print("python /home/ubuntu/OCRplus/Backend/backend.py %s %s %s %s %s %s %s %s"%(input_image_file_name, tesseract_dict[source_language], google_dict[source_language], google_dict[target_language], tesseract_file_name, parse_file_name, render_file_name, output_image_file_name))
-	os.system("python /home/ubuntu/OCRplus/Backend/backend.py %s %s %s %s %s %s %s %s"%(input_image_file_name, tesseract_dict[source_language], google_dict[source_language], google_dict[target_language], tesseract_file_name, parse_file_name, render_file_name, output_image_file_name))
+	except:
+		os.system("cp " + input_image_file_name + " " + output_image_file_name)
+	
+	if not os.path.isfile(output_image_file_name):
+		os.system("cp " + input_image_file_name + " " + output_image_file_name)
